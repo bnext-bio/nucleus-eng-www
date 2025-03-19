@@ -1,0 +1,6 @@
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-redirect-from
+
+title: Nucleus Engineering
+description: Engineering tools, tricks, and experiments from [Nucleus](https://nucleus.bnext.bio/)
