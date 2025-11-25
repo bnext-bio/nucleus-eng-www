@@ -11,4 +11,5 @@ layout: default
   * [ClpXP Liposome #2 Timeseries](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20250922-cephla-processing/20251008-ClpXP-01.zarr)
   * [ClpXP Liposome #2 Endpoint](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20250922-cephla-processing/20251008-ClpXP-02.zarr)
 * [Cephla Test Well](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20250319-cephla-test/E2-0.ome.zarr)
-
+* *Nucleus PURE*
+  * [Nucleus PURE Timeseries](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251119-nucleus-cytosol/20251119-nucleus-cytosol-01.zarr/F/15/0)
