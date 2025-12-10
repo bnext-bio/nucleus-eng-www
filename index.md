@@ -14,5 +14,5 @@ layout: default
 * *Nucleus PURE*
   * [Nucleus PURE Timeseries](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251119-nucleus-cytosol/20251119-nucleus-cytosol-01.zarr/F/15/0)
 * *DevCells Kickoff*
-** [Cytosol Encapsulation—Group 1](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251209-group1.zarr)
-** [Cytosol Encapsulation—Group 2](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251209-group2.zarr)
+* * [Cytosol Encapsulation—Group 1](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251209-group1.zarr)
+* * [Cytosol Encapsulation—Group 2](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251209-group2.zarr)
