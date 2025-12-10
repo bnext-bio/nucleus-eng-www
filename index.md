@@ -4,6 +4,8 @@ layout: default
 
 # Labs
 ## Microscopy Visualization
+Click on a well to see it in full resolution.
+
 * [PURE Liposome Timeseries](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20250922-cephla-processing/20250925-PURE-01.zarr)
 * *ClpXP*
   * [ClpXP Liposome Timeseries](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20250922-cephla-processing/20251007-ClpXP-01.zarr)
