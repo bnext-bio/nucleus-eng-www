@@ -18,3 +18,4 @@ Click on a well to see it in full resolution.
 * *DevCells Kickoff*
   * [Cytosol Encapsulation—Group 1](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251209-group1.zarr)
   * [Cytosol Encapsulation—Group 2](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251209-group2.zarr)
+  * [Cytosol Encapsulation—Group 3 (Wednesday)](https://nucleus.engineering/vizarr/?source=https://data.test.nucleus.engineering/20251209-devcells-workshop/20251210-group3.zarr)
