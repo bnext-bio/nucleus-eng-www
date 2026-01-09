@@ -14,6 +14,12 @@
       :root {
         --pico-font-family: Iosevka Web, monospace;
       }
+
+      @media (min-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0%, 1fr));
+        }
+      }
     </style>
 
     <script async src="https://plausible.io/js/pa-l0xICigvq1qlUdNHt6dNk.js"></script>
@@ -29,7 +35,7 @@
         <h1>Nucleus</h1>
         <p>A developer ecosystem building synthetic cells.</p>
       </hgroup>
-        <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="grid">
           <article>
             <h2><span class="nf nf-cod-book"></span> Docs</h2>
             <p><small><a href="https://docs.nucleus.engineering/">https://docs.nucleus.engineering/</a></small></p>
