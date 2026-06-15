@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBE 2026 Conference Schedule</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f3; color: #1a1a18; }
+h1 { font-size: 18px; font-weight: 500; padding: 16px 12px 4px; }
+p.subtitle { font-size: 13px; color: #666; padding: 0 12px 12px; }
+.tabs { display: flex; border-bottom: 1px solid #ddd; background: #fff; position: sticky; top: 0; z-index: 10; }
+.tab { flex: 1; padding: 10px 4px; font-size: 13px; font-weight: 500; color: #888; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; line-height: 1.2; }
+.tab.active { color: #1a1a18; border-bottom: 2px solid #1a1a18; }
+.day-panel { display: none; padding: 0 0 2rem; }
+.day-panel.active { display: block; }
+.event { display: flex; gap: 10px; padding: 10px 12px; border-bottom: 0.5px solid #e5e5e3; }
+.event:last-child { border-bottom: none; }
+.time-col { min-width: 88px; font-size: 11px; color: #999; line-height: 1.4; padding-top: 2px; flex-shrink: 0; }
+.event-body { flex: 1; min-width: 0; }
+.event-title { font-size: 13px; color: #1a1a18; line-height: 1.4; }
+.event-sub { font-size: 12px; color: #666; margin-top: 2px; line-height: 1.3; }
+.badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 20px; margin-bottom: 4px; letter-spacing: 0.02em; }
+.badge-keynote { background: #EEEDFE; color: #3C3489; }
+.badge-session { background: #E1F5EE; color: #085041; }
+.badge-break { background: #F1EFE8; color: #444441; }
+.badge-panel { background: #FAEEDA; color: #633806; }
+.badge-lightning { background: #FAECE7; color: #712B13; }
+.badge-poster { background: #FBEAF0; color: #72243E; }
+.badge-social { background: #E6F1FB; color: #0C447C; }
+.section-header { font-size: 11px; font-weight: 500; color: #999; padding: 8px 12px 4px; text-transform: uppercase; letter-spacing: 0.06em; background: #f5f5f3; border-bottom: 0.5px solid #e5e5e3; border-top: 0.5px solid #e5e5e3; margin-top: 4px; }
+
+@media (prefers-color-scheme: dark) {
+  body { background: #1a1a18; color: #f0ede8; }
+  .tabs { background: #242422; border-bottom-color: #3a3a38; }
+  .tab { color: #888; }
+  .tab.active { color: #f0ede8; border-bottom-color: #f0ede8; }
+  .event { border-bottom-color: #2e2e2c; }
+  .event-title { color: #f0ede8; }
+  .event-sub { color: #aaa; }
+  .time-col { color: #777; }
+  .section-header { color: #777; background: #242422; border-color: #2e2e2c; }
+  .badge-keynote { background: #26215C; color: #CECBF6; }
+  .badge-session { background: #04342C; color: #9FE1CB; }
+  .badge-break { background: #2C2C2A; color: #D3D1C7; }
+  .badge-panel { background: #412402; color: #FAC775; }
+  .badge-lightning { background: #4A1B0C; color: #F5C4B3; }
+  .badge-poster { background: #4B1528; color: #F4C0D1; }
+  .badge-social { background: #042C53; color: #B5D4F4; }
+}
+</style>
+</head>
+<body>
+
+<h1>SBE 2026 · Conference Schedule</h1>
+<p class="subtitle">All times Central Daylight Time (CDT)</p>
+
+<div class="tabs">
+  <button class="tab active" onclick="show(0)">Jun 15<br><span style="font-weight:400;font-size:11px">Day 1</span></button>
+  <button class="tab" onclick="show(1)">Jun 16<br><span style="font-weight:400;font-size:11px">Day 2</span></button>
+  <button class="tab" onclick="show(2)">Jun 17<br><span style="font-weight:400;font-size:11px">Day 3</span></button>
+  <button class="tab" onclick="show(3)">Jun 18<br><span style="font-weight:400;font-size:11px">Day 4</span></button>
+</div>
+
+<!-- DAY 1 -->
+<div id="day0" class="day-panel active">
+  <div class="section-header">Morning</div>
+  <div class="event"><div class="time-col">8:00 – 3:00 PM</div><div class="event-body"><div class="badge badge-social">Registration</div><div class="event-title">Registration + Badge Pick Up</div></div></div>
+  <div class="event"><div class="time-col">9:00 – 9:15 AM</div><div class="event-body"><div class="event-title">Welcome Remarks</div><div class="event-sub">Evan Flach, SBE · Harris Wang, Columbia · Peyton Greenside, BigHat Biosciences</div></div></div>
+  <div class="event"><div class="time-col">9:15 – 10:00 AM</div><div class="event-body"><div class="badge badge-keynote">Keynote</div><div class="event-title">LassoGrafting of pseudo-cyclic peptide motifs to proteins for NeoBiologics</div><div class="event-sub">Hiroaki Suga, University of Tokyo · Co-founder, Peptidream</div></div></div>
+  <div class="event"><div class="time-col">10:00 – 10:30 AM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Morning Coffee Break</div></div></div>
+
+  <div class="section-header">Session 1 · Cell-free Systems, Synthetic Genomes &amp; Synthetic Cells</div>
+  <div class="event"><div class="time-col">10:35 – 11:00 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Allen Henderson</div><div class="event-sub">Sutro Biopharma</div></div></div>
+  <div class="event"><div class="time-col">11:00 – 11:25 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">DNA Replication Coupled to Cell-Free Gene Expression for Accelerated In Vitro Evolution</div><div class="event-sub">Zhanar Abil, University of Florida</div></div></div>
+  <div class="event"><div class="time-col">11:25 – 11:40 AM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">A Self-Replicating Artificial Genome and Darwinian Evolution of a Replication Protein In Vitro</div><div class="event-sub">Yuta Yamagishi, Rikkyo University</div></div></div>
+  <div class="event"><div class="time-col">11:40 – 11:55 AM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Selective Haploidization Enables Scalable Consolidation of Synthetic Yeast Chromosomes</div><div class="event-sub">Alba Ballerini, NYU Langone Health</div></div></div>
+  <div class="event"><div class="time-col">11:55 AM – 12:10 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Developing the Use of Fully Synthetic DNA for Therapeutic Production In Cell-Free Expression Systems</div><div class="event-sub">Katherine Rhea, U.S. Army DEVCOM Chemical Biological Center</div></div></div>
+
+  <div class="section-header">Afternoon</div>
+  <div class="event"><div class="time-col">12:10 – 1:10 PM</div><div class="event-body"><div class="badge badge-social">Networking</div><div class="event-title">Lunch With A Legend</div><div class="event-sub">Small-group networking lunch for early career professionals, students &amp; post-docs</div></div></div>
+
+  <div class="section-header">Session 2 · Nucleic Acid, Protein, Enzyme Design and Engineering</div>
+  <div class="event"><div class="time-col">1:15 – 1:40 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Biocatalytic synthesis of non-natural macrocyclic peptides</div><div class="event-sub">Hsing-I Ho, Merck</div></div></div>
+  <div class="event"><div class="time-col">1:40 – 2:05 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Cell Free Biosensors: Where have we gone and where are we going?</div><div class="event-sub">Julius Lucks, Northwestern University</div></div></div>
+  <div class="event"><div class="time-col">2:05 – 2:20 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Growth-Based Quantitative Sequencing (GROQ-seq) of T7 RNA Polymerase</div><div class="event-sub">James McLellan, The Align Foundation</div></div></div>
+  <div class="event"><div class="time-col">2:20 – 2:35 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Programmable RNA Molecular Devices for Biosensing and Cellular Gene Expression Regulation</div><div class="event-sub">Fan Hong, University of Florida</div></div></div>
+  <div class="event"><div class="time-col">2:35 – 2:50 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Beyond DNA Barcodes: Enzyme Screening through MS-Based Genotype Identification</div><div class="event-sub">Denijel Latifovic, ETH Zürich</div></div></div>
+  <div class="event"><div class="time-col">2:50 – 3:20 PM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Afternoon Coffee Break</div></div></div>
+
+  <div class="section-header">Panel + Lightning Talks</div>
+  <div class="event"><div class="time-col">3:20 – 4:05 PM</div><div class="event-body"><div class="badge badge-panel">Panel</div><div class="event-title">Funding Opportunities</div><div class="event-sub">Led by Chris Myers, CU-Boulder &amp; Richard Murray, Caltech · Panelists: Mark Salvador (DARPA), Anthony Garza (NSF), Stephanie McElhinny (ARO), Michael Clear (Schmidt Sciences), Nichole Darringer (NIBIB/NIH)</div></div></div>
+  <div class="event"><div class="time-col">4:05 – 4:10 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Targeting Multidrug-Resistant Bacteria with Genetic-Information-Free Protein-Only Phages</div><div class="event-sub">Hyunjin Shim, California State University, Fresno</div></div></div>
+  <div class="event"><div class="time-col">4:10 – 4:15 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Mapping Context Dependency In Synthetic Biology Using Cell-Free Systems</div><div class="event-sub">Fernanda Piorino, NIST</div></div></div>
+  <div class="event"><div class="time-col">4:15 – 4:20 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Leucine Zipper Bispecifics: Synthetically Dimerized Multi-Chain Bispecific Antibodies In One-Pot CFPS</div><div class="event-sub">Wei Chan, BigHat Biosciences</div></div></div>
+  <div class="event"><div class="time-col">4:20 – 4:25 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Developing Dynamic Biosensors for Emerging Synthetic Opioids with Computational Design</div><div class="event-sub">Rachel Chayer, University of Colorado Boulder</div></div></div>
+  <div class="event"><div class="time-col">4:25 – 4:30 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Comprehensive Functional Landscapes Reveal Pervasive Positional Tunability across Three Bacterial Transcription Repressors</div><div class="event-sub">Shwetha Sreenivasan, NIST</div></div></div>
+  <div class="event"><div class="time-col">4:30 – 5:30 PM</div><div class="event-body"><div class="badge badge-poster">Poster Session</div><div class="event-title">Cocktail Reception + Poster Session 1</div></div></div>
+</div>
+
+<!-- DAY 2 -->
+<div id="day1" class="day-panel">
+  <div class="section-header">Morning</div>
+  <div class="event"><div class="time-col">8:00 – 3:00 PM</div><div class="event-body"><div class="badge badge-social">Registration</div><div class="event-title">Registration + Badge Pick Up</div></div></div>
+  <div class="event"><div class="time-col">9:00 – 9:05 AM</div><div class="event-body"><div class="event-title">Welcome Remarks</div><div class="event-sub">Harris Wang, Columbia · Peyton Greenside, BigHat Biosciences</div></div></div>
+  <div class="event"><div class="time-col">9:05 – 9:50 AM</div><div class="event-body"><div class="badge badge-keynote">Keynote</div><div class="event-title">Using a GPT-5-driven autonomous lab to optimize the cost and titer of cell-free protein synthesis</div><div class="event-sub">Reshma Shetty, Ginkgo Bioworks</div></div></div>
+  <div class="event"><div class="time-col">9:50 – 10:20 AM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Morning Coffee Break</div></div></div>
+
+  <div class="section-header">Session 3 · New Chemicals &amp; Materials from Synthetic Biology</div>
+  <div class="event"><div class="time-col">10:25 – 10:50 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">A modular biosynthetic platform enabling scalable access to terpenes for diverse applications</div><div class="event-sub">Simone Montovani, Amyris</div></div></div>
+  <div class="event"><div class="time-col">10:50 – 11:15 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Engineered living optical fibers and other bacterial photonic devices</div><div class="event-sub">Anne Meyer, University of Rochester</div></div></div>
+  <div class="event"><div class="time-col">11:15 – 11:30 AM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Polyketide-Based Biosynthetic Platforms for Commodity and Specialty Chemicals</div><div class="event-sub">Qingyun Dan, Lawrence Berkeley National Laboratory</div></div></div>
+  <div class="event"><div class="time-col">11:30 – 11:45 AM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Engineering Microbial Consortia for Mixed Plastic Upcycling</div><div class="event-sub">Tae Seok Moon, J. Craig Venter Institute</div></div></div>
+  <div class="event"><div class="time-col">11:45 AM – 12:00 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Programmable Engineered Living Materials through CP19K-Mediated Self-Assembly</div><div class="event-sub">Ingrid Roselyne Dukundane, University of Maryland</div></div></div>
+
+  <div class="section-header">Afternoon</div>
+  <div class="event"><div class="time-col">12:00 – 1:00 PM</div><div class="event-body"><div class="badge badge-social">Lunch</div><div class="event-title">Lunch</div></div></div>
+
+  <div class="section-header">Session 4 · Living Medicines and Therapeutics</div>
+  <div class="event"><div class="time-col">1:05 – 1:30 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Sensitive and multispecific targeting of cancer with the Chimeric TCR platform</div><div class="event-sub">Sylvain Simon, Fred Hutch</div></div></div>
+  <div class="event"><div class="time-col">1:30 – 1:55 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Engineering Ultra-Tight Inducible Control Systems for iPSC-Compatible Cell Engineering</div><div class="event-sub">Andrew Ng, Genentech</div></div></div>
+  <div class="event"><div class="time-col">1:55 – 2:10 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Surface Expression of Antitoxin on Engineered Bacteria Neutralizes Genotoxic Colibactin In the Gut</div><div class="event-sub">Jiahe Li, University of Michigan</div></div></div>
+  <div class="event"><div class="time-col">2:10 – 2:25 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Designing Probiotics to Suppress Pseudomonas Aeruginosa Via Metabolic Niche Exclusion</div><div class="event-sub">Jacob Hilzinger, UC Berkeley</div></div></div>
+  <div class="event"><div class="time-col">2:25 – 2:55 PM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Afternoon Coffee Break</div></div></div>
+
+  <div class="section-header">Panel + Lightning Talks</div>
+  <div class="event"><div class="time-col">2:55 – 3:40 PM</div><div class="event-body"><div class="badge badge-panel">Panel</div><div class="event-title">Biosafety and Biosecurity in the Era of AI</div><div class="event-sub">Led by Harris Wang, Columbia &amp; Sam Weiss Evans, FAS · Panelists: Kevin Flyanolts (Aclid), James Diggans (Twist), Jaime Yassif (NTI), Geoffrey Taghon (JHU/NIST), Justin Taylor (Anthropic)</div></div></div>
+  <div class="event"><div class="time-col">3:40 – 3:45 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Microbial Metabolism-Mediated Carbene Transfer</div><div class="event-sub">Alexis Holwerda, UT Austin</div></div></div>
+  <div class="event"><div class="time-col">3:45 – 3:50 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Enzymatic Synthesis of Novel Polyamide Oligomers</div><div class="event-sub">Liangyu Qian, Oak Ridge National Laboratory</div></div></div>
+  <div class="event"><div class="time-col">3:50 – 3:55 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Reprogramming the Genetic Code for Next-Gen Recombinant Biomolecules</div><div class="event-sub">Daniel de la Torre, Constructive Biology</div></div></div>
+  <div class="event"><div class="time-col">3:55 – 4:00 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">From Pathogen to Platform: Engineering Cryptococcus Neoformans for Therapeutic Delivery to the Brain</div><div class="event-sub">Clinton Smith, University of Florida</div></div></div>
+  <div class="event"><div class="time-col">4:00 – 4:05 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Domesticating Brucella Melitensis Dvjbr for Living Bacterial Immunotherapy</div><div class="event-sub">Chelsea Hu, Texas A&amp;M University</div></div></div>
+  <div class="event"><div class="time-col">4:05 – 4:10 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Unlocking Potent Anti-Tumor Immune Response Via CRISPR-Mediated Deletion of Immunosuppressive Effectors In Salmonella Cancer Therapy</div><div class="event-sub">Chinmay Deshpande, UMass Amherst</div></div></div>
+  <div class="event"><div class="time-col">4:10 – 5:10 PM</div><div class="event-body"><div class="badge badge-poster">Poster Session</div><div class="event-title">Poster Session 2</div></div></div>
+</div>
+
+<!-- DAY 3 -->
+<div id="day2" class="day-panel">
+  <div class="section-header">Morning</div>
+  <div class="event"><div class="time-col">8:00 – 3:00 PM</div><div class="event-body"><div class="badge badge-social">Registration</div><div class="event-title">Registration + Badge Pick Up</div></div></div>
+  <div class="event"><div class="time-col">9:00 – 9:05 AM</div><div class="event-body"><div class="event-title">Welcome Remarks</div><div class="event-sub">Harris Wang, Columbia · Peyton Greenside, BigHat Biosciences</div></div></div>
+  <div class="event"><div class="time-col">9:05 – 9:50 AM</div><div class="event-body"><div class="badge badge-keynote">Keynote</div><div class="event-title">Evolutionary design from molecular to genome scale</div><div class="event-sub">Brian Hie, Stanford University</div></div></div>
+  <div class="event"><div class="time-col">9:50 – 10:20 AM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Morning Coffee Break</div></div></div>
+
+  <div class="section-header">Session 5 · Foundational ML Models for Biology</div>
+  <div class="event"><div class="time-col">10:25 – 10:50 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">From Sequence and Structure to Function: AI-Guided Protein Evolution</div><div class="event-sub">Kaiyi Jiang, Princeton University</div></div></div>
+  <div class="event"><div class="time-col">10:50 – 11:15 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">ATOM-1: A Foundation Model for RNA Structure and Function</div><div class="event-sub">Raphael Townshend, Atomic AI</div></div></div>
+  <div class="event"><div class="time-col">11:15 – 11:30 AM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">What Does It Take to Build a Foundation Model for Antibody Biophysics and Developability?</div><div class="event-sub">Hunter Elliott, BigHat Biosciences</div></div></div>
+  <div class="event"><div class="time-col">11:30 – 11:45 AM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Centaur: Bridging Continuous and Discrete Generation for Protein Sequence Structure Co-Design</div><div class="event-sub">Leo Tianlai Chen, Harvard Medical School</div></div></div>
+  <div class="event"><div class="time-col">11:45 AM – 12:00 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Generative Design of Synthetic Gene Circuits for Functional and Evolutionary Properties</div><div class="event-sub">Olivia Gallup, University of Oxford</div></div></div>
+
+  <div class="section-header">Afternoon</div>
+  <div class="event"><div class="time-col">12:00 – 1:00 PM</div><div class="event-body"><div class="badge badge-social">Lunch</div><div class="event-title">Lunch</div></div></div>
+
+  <div class="section-header">Session 6 · Engineered Cellular Sensors, Transducers, and Actuators</div>
+  <div class="event"><div class="time-col">1:05 – 1:30 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Technologies to capture mammalian developmental cell trajectories</div><div class="event-sub">Nozomu Yachie, University of British Columbia</div></div></div>
+  <div class="event"><div class="time-col">1:30 – 1:55 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Microbial Biosensors for Critical Mineral Detection</div><div class="event-sub">Brandon Fields, Fieldstone Bio</div></div></div>
+  <div class="event"><div class="time-col">1:55 – 2:10 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">High-Throughput Engineering of Membrane Sugar Transporter Biosensors</div><div class="event-sub">Sojeong Gwon, Georgia Institute of Technology</div></div></div>
+  <div class="event"><div class="time-col">2:10 – 2:25 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Bacterial Biosensors for Lung Cancer Detection</div><div class="event-sub">Michael Brasino, University of Vermont</div></div></div>
+  <div class="event"><div class="time-col">2:25 – 2:40 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">A Genetically Encoded Device for Transcriptome Storage In Mammalian Cells</div><div class="event-sub">Yu-Kai Chao, Broad Institute of MIT and Harvard</div></div></div>
+  <div class="event"><div class="time-col">2:40 – 3:10 PM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Afternoon Coffee Break</div></div></div>
+
+  <div class="section-header">Session 7 · Engineering Microbiomes, Ecosystems, and Non-Model Organisms</div>
+  <div class="event"><div class="time-col">3:15 – 3:40 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Establishing Genetic Tractability Across the Microbial Tree of Life</div><div class="event-sub">Nili Ostrov, Cultivarium</div></div></div>
+  <div class="event"><div class="time-col">3:40 – 4:05 PM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Environmentally Triggered Growth-Production Programming in Undomesticated Cereal Inoculants</div><div class="event-sub">Tim Haskett, Switch Bioworks</div></div></div>
+  <div class="event"><div class="time-col">4:05 – 4:20 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Engineering Trichoderma-Based Biosentinels: Smart Systems to Detect, Remember, and Respond to Environmental Stressors</div><div class="event-sub">Kyle Davis, Oak Ridge National Laboratory</div></div></div>
+  <div class="event"><div class="time-col">4:20 – 4:35 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Building Synthetic Lichens through Fungal-Cyanobacterial Partnerships</div><div class="event-sub">Jorge Guío, Michigan State University</div></div></div>
+  <div class="event"><div class="time-col">4:35 – 4:50 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Engineering Horizontal Gene Transfer As a Biocontrol Strategy for Microbial Communities</div><div class="event-sub">Sai Varun Aduru, University of Rochester</div></div></div>
+
+  <div class="section-header">Lightning Talks</div>
+  <div class="event"><div class="time-col">4:50 – 4:55 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Recoding Life with a 19-Amino Acid Alphabet Via Generative Modeling</div><div class="event-sub">Charlotte Rochereau, Columbia University</div></div></div>
+  <div class="event"><div class="time-col">4:55 – 5:00 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">A Modular ML Approach to Design Multiplexed Whole Cell Bacterial Biosensors</div><div class="event-sub">Jichi Wang, MIT</div></div></div>
+  <div class="event"><div class="time-col">5:00 – 5:05 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">A Single Protein Scaffold Enables Programmable Broad-Spectrum Small-Molecule Detection</div><div class="event-sub">Hao Tian, University of California</div></div></div>
+  <div class="event"><div class="time-col">5:05 – 5:10 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">From Characterization to Prediction: A Dynamic and Single-Cell Framework for Context-Aware Biosensor Design</div><div class="event-sub">Mara Pisani, UV-CSIC Spanish National Research Council</div></div></div>
+  <div class="event"><div class="time-col">5:10 – 5:15 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Autoluminescent Plants Using Synthetic Circuits</div><div class="event-sub">Minseo Kim, Korea Science Academy of KAIST</div></div></div>
+  <div class="event"><div class="time-col">5:15 – 5:20 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Enabling Host-Informed Microbiome Engineering through Non-Invasive Longitudinal Host Transcriptomic Profiling</div><div class="event-sub">Yiwei Sun, Columbia University</div></div></div>
+  <div class="event"><div class="time-col">5:20 – 6:20 PM</div><div class="event-body"><div class="badge badge-poster">Poster Session</div><div class="event-title">Poster Session 3</div></div></div>
+</div>
+
+<!-- DAY 4 -->
+<div id="day3" class="day-panel">
+  <div class="section-header">Morning</div>
+  <div class="event"><div class="time-col">8:00 AM – 12:00 PM</div><div class="event-body"><div class="badge badge-social">Registration</div><div class="event-title">Registration + Badge Pick Up</div></div></div>
+  <div class="event"><div class="time-col">9:00 – 9:05 AM</div><div class="event-body"><div class="event-title">Welcome Remarks</div><div class="event-sub">Harris Wang, Columbia · Peyton Greenside, BigHat Biosciences</div></div></div>
+  <div class="event"><div class="time-col">9:05 – 9:50 AM</div><div class="event-body"><div class="badge badge-keynote">Keynote</div><div class="event-title">George Church</div><div class="event-sub">Harvard Medical School and MIT</div></div></div>
+  <div class="event"><div class="time-col">9:50 – 10:20 AM</div><div class="event-body"><div class="badge badge-keynote">Award</div><div class="event-title">ACS SynBio Young Innovator Award</div><div class="event-sub">Xiaojing Gao, Stanford University</div></div></div>
+  <div class="event"><div class="time-col">10:20 – 10:50 AM</div><div class="event-body"><div class="badge badge-break">Break</div><div class="event-title">Morning Coffee Break</div></div></div>
+
+  <div class="section-header">Session 8 · Bio-design Automation</div>
+  <div class="event"><div class="time-col">10:55 – 11:20 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">Robotic platforms unlock new approaches and applications for engineering biology</div><div class="event-sub">Harrison Steel, University of Oxford</div></div></div>
+  <div class="event"><div class="time-col">11:20 – 11:45 AM</div><div class="event-body"><div class="badge badge-session">Invited</div><div class="event-title">An AI-powered Self-driving Biofoundry for Synthetic Biology</div><div class="event-sub">Huimin Zhao, UIUC</div></div></div>
+  <div class="event"><div class="time-col">11:45 AM – 12:00 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Emergex: A Computational Framework for Designing Emergent Dynamics In Chemical Reaction Networks</div><div class="event-sub">Colin Yancey, Johns Hopkins University</div></div></div>
+  <div class="event"><div class="time-col">12:00 – 12:15 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">Modeling Toehold-Mediated Strand Exchange Circuits across Synthetic Biology Applications</div><div class="event-sub">Zoila Jurado, NIST</div></div></div>
+  <div class="event"><div class="time-col">12:15 – 12:30 PM</div><div class="event-body"><div class="badge badge-session">Abstract</div><div class="event-title">SynBioSuite2: A Standards-Enabled Platform for Integrated Synthetic Biology Workflows</div><div class="event-sub">Gonzalo A. Vidal Peña, University of Colorado Boulder</div></div></div>
+
+  <div class="section-header">Lightning Talks + Closing</div>
+  <div class="event"><div class="time-col">12:30 – 12:35 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Multi-Variable Control to Enhance the Modularity of CRISPR Systems</div><div class="event-sub">Krishna Manoj, MIT</div></div></div>
+  <div class="event"><div class="time-col">12:35 – 12:40 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">An Open Liquid Handler for Advanced, Data-Driven, and Self-Sustaining Laboratory Automation</div><div class="event-sub">Ryan Boileau, Duke University</div></div></div>
+  <div class="event"><div class="time-col">12:40 – 12:45 PM</div><div class="event-body"><div class="badge badge-lightning">Lightning</div><div class="event-title">Bio-Design Automation for Strain Engineering</div><div class="event-sub">William Henson, Battelle Memorial Institute</div></div></div>
+  <div class="event"><div class="time-col">12:45 – 12:55 PM</div><div class="event-body"><div class="badge badge-break">Closing</div><div class="event-title">Closing Remarks</div><div class="event-sub">Evan Flach, SBE · Harris Wang, Columbia · Peyton Greenside, BigHat Biosciences</div></div></div>
+</div>
+
+<script>
+function show(i) {
+  document.querySelectorAll('.day-panel').forEach((p,j) => p.classList.toggle('active', j===i));
+  document.querySelectorAll('.tab').forEach((t,j) => t.classList.toggle('active', j===i));
+}
+</script>
+</body>
+</html>
