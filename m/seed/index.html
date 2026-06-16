@@ -34,6 +34,9 @@ p.subtitle { font-size: 13px; color: #666; padding: 0 12px 12px; }
 .share-body { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 32px 16px; }
 .share-body img { width: 240px; max-width: 80vw; height: auto; background: #fff; padding: 12px; border-radius: 12px; }
 .share-body p { font-size: 13px; color: #666; margin-top: 16px; max-width: 280px; line-height: 1.4; }
+.now-line { display: flex; align-items: center; gap: 8px; padding: 0 12px; margin: 2px 0; }
+.now-line::after { content: ""; flex: 1; height: 2px; background: #d93a3a; }
+.now-line span { font-size: 10px; font-weight: 600; color: #d93a3a; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
 
 @media (prefers-color-scheme: dark) {
   body { background: #1a1a18; color: #f0ede8; }
@@ -48,6 +51,8 @@ p.subtitle { font-size: 13px; color: #666; padding: 0 12px 12px; }
   .cal-btn:hover { color: #f0ede8; border-color: #666; }
   .section-header { color: #d8d5cf; background: #2e2e2c; border-color: #3a3a38; }
   .share-body p { color: #aaa; }
+  .now-line::after { background: #ff5c5c; }
+  .now-line span { color: #ff5c5c; }
   .badge-keynote { background: #26215C; color: #CECBF6; }
   .badge-session { background: #04342C; color: #9FE1CB; }
   .badge-break { background: #2C2C2A; color: #D3D1C7; }
@@ -308,6 +313,69 @@ document.querySelectorAll('.day-panel').forEach((panel, dayIdx) => {
     ev.appendChild(btn);
   });
 });
+
+// --- Default to today's tab + show a "now" line at the current time ---
+
+// Current wall-clock in America/Denver, independent of the viewer's own timezone.
+// Returns { date: "YYYY-MM-DD", minutes: minutesSinceMidnight }.
+function nowInDenver() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Denver', hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit'
+  }).formatToParts(new Date()).reduce((o, p) => (o[p.type] = p.value, o), {});
+  return {
+    date: `${parts.year}-${parts.month}-${parts.day}`,
+    minutes: parseInt(parts.hour, 10) * 60 + parseInt(parts.minute, 10)
+  };
+}
+
+// "YYYYMMDDTHHMMSS" → minutes since midnight.
+function rangeMinutes(s) {
+  return parseInt(s.slice(9, 11), 10) * 60 + parseInt(s.slice(11, 13), 10);
+}
+
+function placeNowLine() {
+  document.querySelector('.now-line')?.remove();
+  const now = nowInDenver();
+  const dayIdx = DAY_DATES.indexOf(now.date);
+  if (dayIdx < 0) return; // not a conference day
+  const panel = document.getElementById('day' + dayIdx);
+  if (!panel) return;
+
+  const line = document.createElement('div');
+  line.className = 'now-line';
+  line.innerHTML = '<span>Now · ' +
+    new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', hour: 'numeric', minute: '2-digit' })
+      .format(new Date()) + '</span>';
+
+  // Insert before the first event that starts at or after now; else append at end.
+  const events = [...panel.querySelectorAll('.event')];
+  let target = null;
+  for (const ev of events) {
+    const range = parseRange(now.date, ev.querySelector('.time-col')?.textContent || '');
+    if (range && rangeMinutes(range.start) >= now.minutes) { target = ev; break; }
+  }
+  if (target) {
+    // Place after any section-header immediately preceding the target event.
+    let anchor = target;
+    while (anchor.previousElementSibling?.classList.contains('section-header')) {
+      anchor = anchor.previousElementSibling;
+    }
+    panel.insertBefore(line, anchor);
+  } else if (events.length) {
+    events[events.length - 1].after(line);
+  }
+}
+
+// On load: jump to today's tab (if the conference is running), then draw the line.
+(function initToday() {
+  const dayIdx = DAY_DATES.indexOf(nowInDenver().date);
+  if (dayIdx >= 0) show(dayIdx);
+  placeNowLine();
+  // Keep the line fresh while the page stays open.
+  setInterval(placeNowLine, 60000);
+})();
 </script>
 </body>
 </html>
