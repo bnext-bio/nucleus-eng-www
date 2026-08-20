@@ -14,7 +14,7 @@ export default {
       backgroundColor: 'black',
     });
     // hard code closed for now
-    let viewer = await vizarr.createViewer(div, { menuOpen: true });
+    let viewer = await vizarr.createViewer(div, { menuOpen: !!model.get('menuOpen') ?? false });
     viewer.addImage({ source: model.get('source') });
     el.appendChild(div);
     console.debug('vizarr-viewer: done');
